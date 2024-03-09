@@ -1,12 +1,9 @@
 import React from 'react';
 
-const Header = () => {
+export default function Header(){
     return (
         <div>
            <h1>logo</h1>
-           
         </div>
-    );
+    )
 };
-
-export default Header;
