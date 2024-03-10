@@ -6,6 +6,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import AlbumCard from "components/album-card/album-card";
 
 export default function Album() {
+
   return (
     <div>
       <Accordion>
