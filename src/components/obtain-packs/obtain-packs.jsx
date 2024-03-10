@@ -3,7 +3,8 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Unstable_Grid2";
 import Modal from "@mui/material/Modal";
-import packImage from "../../assets/pack-darkmode.png";
+import AlbumCard from "../album-card/album-card";
+import CardPack from "../card-pack/card-pack";
 
 const style = {
   position: "absolute",
@@ -13,7 +14,7 @@ const style = {
   bgcolor: "background.paper",
   border: "0.5px solid",
   boxShadow: 24,
-  padding: 4,
+  p: 0,
 };
 
 export default function ObtainPacks(props) {
@@ -25,14 +26,34 @@ export default function ObtainPacks(props) {
       aria-describedby="In this modal the user opens new packs"
     >
       <Container maxWidth="md" sx={style}>
-        <Typography variant="h6" component="h2">
+        <Typography variant="h4" sx={{ textAlign: "center", p: 2 }}>
           Open new packs
         </Typography>
-        <Grid container spacing={2}>
-          <Grid xs={4}>
-            <img src={packImage} alt="Pack Dark Mode" />
+        <Grid display={"flex"} justifyContent={"space-evenly"} spacing={2}>
+          <Grid xs={3}>
+            <CardPack variation="dark" />
           </Grid>
-          <Grid xs={8}></Grid>
+          <Grid xs={3}>
+            <CardPack variation="light" />
+          </Grid>
+          <Grid xs={3}>
+            <CardPack variation="dark" />
+          </Grid>
+          <Grid xs={3}>
+            <CardPack variation="light" />
+          </Grid>
+        </Grid>
+        <Grid
+          display={"flex"}
+          justifyContent={"space-evenly"}
+          flexWrap="wrap"
+          spacing={4}
+        >
+          <AlbumCard />
+          <AlbumCard />
+          <AlbumCard />
+          <AlbumCard />
+          <AlbumCard />
         </Grid>
       </Container>
     </Modal>

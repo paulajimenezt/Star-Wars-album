@@ -19,12 +19,12 @@ export default function AlbumCard() {
           height: "40px",
           borderRadius: "50%",
           backgroundColor: "#1F6AD2",
-          right: 125,
-          top: 10,
+          right: 138,
+          top: 15,
         },
       }}
     >
-      <Box width={140} height={175} sx={{ border: 7, borderRadius: 3 }}>
+      <Box width={140} height={175} sx={{ border: 7, borderRadius: 3, m: 1 }}>
         <Card
           sx={{
             width: "100%",
@@ -36,7 +36,11 @@ export default function AlbumCard() {
               padding: 0,
             }}
           >
-            <Typography variant="h5" component="div">
+            <Typography
+              variant="h5"
+              component="div"
+              sx={{ textAlign: "center", p: 2 }}
+            >
               Luke Sywalker
             </Typography>
             <Divider
@@ -47,7 +51,9 @@ export default function AlbumCard() {
                 width: "100%",
               }}
             />
-            <Typography variant="body2">Character</Typography>
+            <Typography variant="body2" sx={{ textAlign: "center", p: 1 }}>
+              Character Common
+            </Typography>
           </CardContent>
         </Card>
       </Box>
