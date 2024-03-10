@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useState } from "react";
+//import { useState } from "react";
 import Card from "@mui/material/Card";
 import Box from "@mui/material/Box";
 import CardContent from "@mui/material/CardContent";
@@ -8,14 +8,14 @@ import Typography from "@mui/material/Typography";
 import Badge from "@mui/material/Badge";
 
 export default function AlbumCard(props) {
-  const [isHovered, setIsHovered] = useState(false);
+  /*const [isHovered, setIsHovered] = useState(false);
   function handleMouseOver() {
     setIsHovered(true);
   }
   function handleMouseOut() {
     setIsHovered(false);
   }
-  const fromPacks = props.fromPacks || false;
+  const fromPacks = props.fromPacks || false;*/
   const id = props.id;
   const title = props.title;
   const section = props.section;
@@ -56,9 +56,6 @@ export default function AlbumCard(props) {
             height: "100%",
             color: "black",
             backgroundColor: "white",
-            ":hover": {
-              backgroundColor: "#0009",
-            },
           }}
         >
           <CardContent

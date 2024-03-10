@@ -31,21 +31,19 @@ export default function FetchCards(props) {
   }
 
   if (status === "error") {
-    return <p>{"Error loading characters"}</p>;
+    return <p>{"Error loading characters:" + error}</p>;
   }
 
   if (section === "Film") {
     data.sort((a, b) => a.episode_id - b.episode_id);
   }
   return data.map((object, i) => {
-    let id;
     let title;
+    const id = object.url.split("/")[5];
     if (section === "Character" || section === "Starship") {
-      id = object.url.split("/")[5];
       title = object.name;
     }
     if (section === "Film") {
-      id = object.url.split("/")[5];
       title = object.title;
     }
     return (
