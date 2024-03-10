@@ -26,10 +26,7 @@ export default function Album() {
         >
           Characters
         </AccordionSummary>
-        <AccordionDetails>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-          malesuada lacus ex, sit amet blandit leo lobortis eget.
-        </AccordionDetails>
+        <AccordionDetails></AccordionDetails>
       </Accordion>
       <Accordion defaultExpanded>
         <AccordionSummary

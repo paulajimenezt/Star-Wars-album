@@ -5,12 +5,15 @@ import { ThemeProvider } from "@mui/material/styles";
 import { darkTheme } from "utils/theme";
 import { lightTheme } from "utils/theme";
 import "./App.css";
+import { Button } from "@mui/material";
+import ButtonAppBar from "components/header/header";
 
 function App() {
   return (
     <div className="App">
       <ThemeProvider theme={lightTheme}>
         <CssBaseline />
+        <ButtonAppBar />
         <Container maxWidth="lg">
           <Album />
         </Container>
