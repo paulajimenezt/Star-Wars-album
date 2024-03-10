@@ -1,5 +1,4 @@
 import * as React from "react";
-import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Unstable_Grid2";
@@ -31,10 +30,7 @@ export default function ObtainPacks(props) {
         </Typography>
         <Grid container spacing={2}>
           <Grid xs={4}>
-            <img
-              src={packImage}
-              alt="Pack Dark Mode"
-            />
+            <img src={packImage} alt="Pack Dark Mode" />
           </Grid>
           <Grid xs={8}></Grid>
         </Grid>

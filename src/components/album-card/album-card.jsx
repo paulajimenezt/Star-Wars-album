@@ -41,7 +41,7 @@ export default function AlbumCard() {
             </Typography>
             <Divider
               sx={{
-                borderColor: "#1F6AD2",
+                borderColor: "black",
                 borderWidth: "1px",
                 borderStyle: "solid",
                 width: "100%",
