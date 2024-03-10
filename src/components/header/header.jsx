@@ -4,8 +4,8 @@ import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Button from "@mui/material/Button";
 import { DarkModeSwitch } from "./dark-mode-switch";
-import darkLogo from "../../assets/star-wars-album-logo-dark.webp";
-import lightLogo from "../../assets/star-wars-album-logo-light.webp";
+import darkLogo from "../../assets/star-wars-album-logo-dark.png";
+import lightLogo from "../../assets/star-wars-album-logo-light.png";
 
 export default function Header(props) {
   let darkMode = props.darkMode;
@@ -17,7 +17,10 @@ export default function Header(props) {
       <AppBar
         position="static"
         color="transparent"
-        sx={{ mb: 2, boxShadow: 0 }}
+        sx={{
+          mb: 2,
+          boxShadow: 4,
+        }}
       >
         <Toolbar>
           <img
@@ -26,11 +29,14 @@ export default function Header(props) {
             style={{ width: "100px" }}
           />
           <Box sx={{ ml: "auto" }}>
-            <Button variant="outlined" onClick={handleOpenPacks}>
+            <Button
+              variant="outlined"
+              style={{ marginRight: 10 }}
+              onClick={handleOpenPacks}
+            >
               Open Packs
             </Button>
             <DarkModeSwitch
-              sx={{ m: 1 }}
               defaultChecked={darkMode}
               onChange={() => {
                 setDarkMode(!darkMode);
