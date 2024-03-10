@@ -1,13 +1,13 @@
 import "./App.css";
 import React, { useState } from "react";
-import Album from "components/album/album";
+import Album from "./components/album/album";
 import CssBaseline from "@mui/material/CssBaseline";
 import Container from "@mui/material/Container";
 import { ThemeProvider } from "@mui/material/styles";
-import { darkTheme } from "utils/theme";
-import { lightTheme } from "utils/theme";
-import Header from "components/header/header";
-import ObtainPacks from "components/obtain-packs/obtain-packs";
+import { darkTheme } from "./utils/theme";
+import { lightTheme } from "./utils/theme";
+import Header from "./components/header/header";
+import ObtainPacks from "./components/obtain-packs/obtain-packs";
 
 function App() {
   const [openPacks, setOpenPacks] = React.useState(false);

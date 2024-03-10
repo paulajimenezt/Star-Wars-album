@@ -3,10 +3,9 @@ import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import AlbumCard from "components/album-card/album-card";
+import AlbumCard from "../../components/album-card/album-card";
 
 export default function Album() {
-
   return (
     <div>
       <Accordion>

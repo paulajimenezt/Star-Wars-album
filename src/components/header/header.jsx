@@ -5,7 +5,6 @@ import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
-import FormControlLabel from "@mui/material/FormControlLabel";
 import Button from "@mui/material/Button";
 
 const MaterialUISwitch = styled(Switch)(({ theme }) => ({
@@ -57,6 +56,7 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
 
 export default function Header(props) {
   let darkMode = props.darkMode;
+  const setDarkMode = props.setDarkMode;
   const handleOpenPacks = props.handleOpenPacks;
 
   return (
@@ -79,16 +79,12 @@ export default function Header(props) {
             Open Packs
           </Button>
 
-          <FormControlLabel
-            control={
-              <MaterialUISwitch
-                sx={{ m: 1 }}
-                defaultChecked={darkMode}
-                onChange={() => {
-                  props.setDarkMode(!darkMode);
-                }}
-              />
-            }
+          <MaterialUISwitch
+            sx={{ m: 1 }}
+            defaultChecked={darkMode}
+            onChange={() => {
+              setDarkMode(!darkMode);
+            }}
           />
         </Toolbar>
       </AppBar>
