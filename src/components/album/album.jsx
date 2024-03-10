@@ -4,7 +4,7 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import Typography from "@mui/material/Typography";
-import AlbumCard from "../../components/album-card/album-card";
+import FetchCards from "./fetch-cards";
 
 export default function Album() {
   return (
@@ -18,10 +18,7 @@ export default function Album() {
           <Typography variant="h5">Films</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <AlbumCard />
-          <AlbumCard />
-          <AlbumCard />
-          <AlbumCard />
+          <FetchCards section={"Film"} />
         </AccordionDetails>
       </Accordion>
       <Accordion defaultExpanded>
@@ -33,7 +30,7 @@ export default function Album() {
           <Typography variant="h5">Characters</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <AlbumCard />
+          <FetchCards section={"Character"} />
         </AccordionDetails>
       </Accordion>
       <Accordion defaultExpanded>
@@ -45,7 +42,7 @@ export default function Album() {
           <Typography variant="h5">Starships</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <AlbumCard />
+          <FetchCards section={"Starship"} />
         </AccordionDetails>
       </Accordion>
     </div>

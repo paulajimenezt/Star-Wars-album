@@ -54,11 +54,11 @@ export default function ObtainPacks(props) {
           flexWrap="wrap"
           spacing={4}
         >
-          <AlbumCard />
-          <AlbumCard />
-          <AlbumCard />
-          <AlbumCard />
-          <AlbumCard />
+          <AlbumCard fromPacks={true} />
+          <AlbumCard fromPacks={true} />
+          <AlbumCard fromPacks={true} />
+          <AlbumCard fromPacks={true} />
+          <AlbumCard fromPacks={true} />
         </Grid>
       </Container>
     </Modal>

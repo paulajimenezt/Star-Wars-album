@@ -8,7 +8,9 @@ import { darkTheme } from "./utils/theme";
 import { lightTheme } from "./utils/theme";
 import Header from "./components/header/header";
 import ObtainPacks from "./components/obtain-packs/obtain-packs";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
+const queryClient = new QueryClient();
 function App() {
   const [openPacks, setOpenPacks] = React.useState(false);
   const [darkMode, setDarkMode] = useState(false);
@@ -16,21 +18,23 @@ function App() {
   const handleClosePacks = () => setOpenPacks(false);
   return (
     <div className="App">
-      <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
-        <CssBaseline />
-        <Header
-          setDarkMode={setDarkMode}
-          darkMode={darkMode}
-          handleOpenPacks={handleOpenPacks}
-        />
-        <ObtainPacks
-          openPacks={openPacks}
-          handleClosePacks={handleClosePacks}
-        />
-        <Container maxWidth="lg">
-          <Album />
-        </Container>
-      </ThemeProvider>
+      <QueryClientProvider client={queryClient}>
+        <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
+          <CssBaseline />
+          <Header
+            setDarkMode={setDarkMode}
+            darkMode={darkMode}
+            handleOpenPacks={handleOpenPacks}
+          />
+          <ObtainPacks
+            openPacks={openPacks}
+            handleClosePacks={handleClosePacks}
+          />
+          <Container maxWidth="lg">
+            <Album />
+          </Container>
+        </ThemeProvider>
+      </QueryClientProvider>
     </div>
   );
 }
