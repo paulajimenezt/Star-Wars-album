@@ -29,7 +29,12 @@ export default function ObtainPacks(props) {
         <Typography variant="h4" sx={{ textAlign: "center", p: 2 }}>
           Open new packs
         </Typography>
-        <Grid display={"flex"} justifyContent={"space-evenly"} spacing={2}>
+        <Grid
+          display={"flex"}
+          justifyContent={"space-evenly"}
+          flexWrap="wrap"
+          spacing={2}
+        >
           <Grid xs={3}>
             <CardPack variation="dark" />
           </Grid>

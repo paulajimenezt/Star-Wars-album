@@ -18,17 +18,29 @@ export default function AlbumCard() {
           width: "40px",
           height: "40px",
           borderRadius: "50%",
-          backgroundColor: "#1F6AD2",
+          backgroundColor: "silver",
           right: 138,
           top: 15,
         },
       }}
     >
-      <Box width={140} height={175} sx={{ border: 7, borderRadius: 3, m: 1 }}>
+      <Box
+        width={140}
+        height={175}
+        sx={{
+          border: 7,
+          borderRadius: 3,
+          m: 1,
+          color: "black",
+          borderColor: "silver",
+        }}
+      >
         <Card
           sx={{
             width: "100%",
             height: "100%",
+            color: "black",
+            backgroundColor: "white",
           }}
         >
           <CardContent
