@@ -1,11 +1,13 @@
 import * as React from "react";
 //import { useState } from "react";
+import { useContext } from "react";
 import Card from "@mui/material/Card";
 import Box from "@mui/material/Box";
 import CardContent from "@mui/material/CardContent";
 import Divider from "@mui/material/Divider";
 import Typography from "@mui/material/Typography";
 import Badge from "@mui/material/Badge";
+import CardContext from "components/card-context/card-context";
 
 export default function AlbumCard(props) {
   /*const [isHovered, setIsHovered] = useState(false);
@@ -21,6 +23,8 @@ export default function AlbumCard(props) {
   const section = props.section;
   const type = props.type;
   const color = type === "Common" ? "silver" : "gold";
+  const collection = useContext(CardContext);
+  const isCollected = collection?.collectedCards[section]?.includes(id);
 
   return (
     <Badge
