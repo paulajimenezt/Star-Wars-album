@@ -12,8 +12,8 @@ export default function Album() {
       <Accordion defaultExpanded>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel1-content"
-          id="panel1-header"
+          aria-controls="Film-cards-content"
+          id="Film-header"
         >
           <Typography variant="h5">Films</Typography>
         </AccordionSummary>
@@ -24,8 +24,8 @@ export default function Album() {
       <Accordion defaultExpanded>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel2-content"
-          id="panel2-header"
+          aria-controls="Characters-cards-content"
+          id="Character-header"
         >
           <Typography variant="h5">Characters</Typography>
         </AccordionSummary>
@@ -36,8 +36,8 @@ export default function Album() {
       <Accordion defaultExpanded>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel3-content"
-          id="panel3-header"
+          aria-controls="Starships-cards-content"
+          id="Stasrships-header"
         >
           <Typography variant="h5">Starships</Typography>
         </AccordionSummary>

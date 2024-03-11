@@ -16,7 +16,7 @@ const uuid = require("uuid");
 
 function App() {
   const generateRandomPack = () => {
-    return Math.random() < 0.5 ? "light" : "dark";
+    return Math.random() < 0.5 ? "Light" : "Dark";
   };
 
   const [collectedCards, setCollectedCards] = useState({
@@ -26,10 +26,10 @@ function App() {
   });
   const [openPacks, setOpenPacks] = React.useState(false);
   const [availablePacks, setAvailablePacks] = React.useState([
-    { vartiant: generateRandomPack(), id: uuid.v4() },
-    { vartiant: generateRandomPack(), id: uuid.v4() },
-    { vartiant: generateRandomPack(), id: uuid.v4() },
-    { vartiant: generateRandomPack(), id: uuid.v4() },
+    { variant: generateRandomPack(), id: uuid.v4() },
+    { variant: generateRandomPack(), id: uuid.v4() },
+    { variant: generateRandomPack(), id: uuid.v4() },
+    { variant: generateRandomPack(), id: uuid.v4() },
   ]);
   const [darkMode, setDarkMode] = useState(false);
   const [openCards, setOpenCards] = useState([]);
@@ -122,3 +122,4 @@ function App() {
 }
 
 export default App;
+

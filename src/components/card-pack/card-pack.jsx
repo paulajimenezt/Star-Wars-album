@@ -11,8 +11,8 @@ export default function CardPack(props) {
     <Container style={{ margin: 2 }}>
       <Box width={100} height={175} position="relative">
         <img
-          src={variation === "light" ? lightPackImage : darkPackImage}
-          alt={variation === "light" ? "Light card pack" : "Dark card pack"}
+          src={variation === "Light" ? lightPackImage : darkPackImage}
+          alt={variation === "Light" ? "Light card pack" : "Dark card pack"}
           style={{ width: "100px" }}
         />
 
