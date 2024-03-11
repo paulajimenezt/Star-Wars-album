@@ -1,8 +1,8 @@
 import * as React from "react";
-//import { useState } from "react";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import Card from "@mui/material/Card";
 import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
 import CardContent from "@mui/material/CardContent";
 import Divider from "@mui/material/Divider";
 import Typography from "@mui/material/Typography";
@@ -10,21 +10,25 @@ import Badge from "@mui/material/Badge";
 import CardContext from "components/card-context/card-context";
 
 export default function AlbumCard(props) {
-  /*const [isHovered, setIsHovered] = useState(false);
-  function handleMouseOver() {
-    setIsHovered(true);
-  }
-  function handleMouseOut() {
-    setIsHovered(false);
-  }
-  const fromPacks = props.fromPacks || false;*/
   const id = props.id;
+  const fromPack = props.fromPack || false;
   const title = props.title;
   const section = props.section;
   const type = props.type;
   const color = type === "Common" ? "silver" : "gold";
   const collection = useContext(CardContext);
   const isCollected = collection?.collectedCards[section]?.includes(id);
+  const buttonColor = !isCollected ? "success" : "error";
+
+  const [isHovered, setIsHovered] = useState(false);
+
+  function handleMouseOver() {
+    setIsHovered(true);
+  }
+
+  function handleMouseOut() {
+    setIsHovered(false);
+  }
 
   return (
     <Badge
@@ -46,7 +50,10 @@ export default function AlbumCard(props) {
       <Box
         width={140}
         height={175}
+        onMouseOver={handleMouseOver}
+        onMouseOut={handleMouseOut}
         sx={{
+          position: "relative",
           border: 7,
           borderRadius: 3,
           m: 1,
@@ -75,6 +82,7 @@ export default function AlbumCard(props) {
                 display: "flex",
                 height: 100,
                 fontFamily: "Roboto",
+                textAlign: "center",
                 justifyContent: "center",
                 alignItems: "center",
               }}
@@ -101,6 +109,35 @@ export default function AlbumCard(props) {
             </Typography>
           </CardContent>
         </Card>
+        {isHovered && fromPack && (
+          <Box
+            style={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              width: "100%",
+              height: "100%",
+              backgroundColor: "rgba(0, 0, 0, 0.5)",
+              display: "flex",
+              justifyContent: "center",
+              textAlign: "center",
+              alignItems: "center",
+            }}
+          >
+            <Button
+              variant="contained"
+              color={buttonColor}
+              onClick={() => {
+                if (!isCollected) {
+                  collection.collectedCards[section].push(id);
+                  collection.updateCollection({ ...collection.collectedCards });
+                }
+              }}
+            >
+              {isCollected ? "Discard" : "Add To Collection"}
+            </Button>
+          </Box>
+        )}
       </Box>
     </Badge>
   );

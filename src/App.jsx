@@ -14,9 +14,9 @@ import CardContext from "components/card-context/card-context";
 const queryClient = new QueryClient();
 function App() {
   const [collectedCards, setCollectedCards] = useState({
-    Film: ["1", "4"],
-    Character: ["2", "6", "7"],
-    Starship: ["3", "5"],
+    Film: [],
+    Character: [],
+    Starship: [],
   });
   const [openPacks, setOpenPacks] = React.useState(false);
   const [darkMode, setDarkMode] = useState(false);
@@ -30,6 +30,7 @@ function App() {
     } else {
       localStorage.setItem("collectedCards", JSON.stringify(collectedCards));
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const updateCollection = (collection) => {

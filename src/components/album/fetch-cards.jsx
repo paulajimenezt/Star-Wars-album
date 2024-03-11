@@ -51,7 +51,7 @@ export default function FetchCards(props) {
     if (section === "Film") {
       title = object.title;
     }
-    if (isCollected) {
+    if (!isCollected) {
       return (
         <UncollectedCard
           key={id}
