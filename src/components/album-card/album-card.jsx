@@ -19,6 +19,7 @@ export default function AlbumCard(props) {
   const collection = useContext(CardContext);
   const isCollected = collection?.collectedCards[section]?.includes(id);
   const buttonColor = !isCollected ? "success" : "error";
+  const removeOpenCard = props.removeOpenCard;
 
   const [isHovered, setIsHovered] = useState(false);
 
@@ -132,6 +133,7 @@ export default function AlbumCard(props) {
                   collection.collectedCards[section].push(id);
                   collection.updateCollection({ ...collection.collectedCards });
                 }
+                removeOpenCard(id);
               }}
             >
               {isCollected ? "Discard" : "Add To Collection"}

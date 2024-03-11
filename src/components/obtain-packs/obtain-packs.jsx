@@ -7,13 +7,15 @@ import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import Modal from "@mui/material/Modal";
 import { Box } from "@mui/material";
 import CardPack from "../card-pack/card-pack";
-import FetchPackCards from "../card-pack/fetch-pack-cards";
+import AlbumCard from "../album-card/album-card";
+import fetchPackCards from "../../scripts/fetch-pack-cards";
 
 const style = {
   position: "absolute",
   maxWidth: "100%",
   maxHeight: "100%",
   overflow: "auto",
+  minHeight: 300,
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
@@ -24,6 +26,24 @@ const style = {
 };
 
 export default function ObtainPacks(props) {
+  const setOpenCards = props.setOpenCards;
+  const availablePacks = props.availablePacks;
+  const openCards = props.openCards;
+  const packTimeout = props.packTimeout;
+  const setPackTimeout = props.setPackTimeout;
+  const removeOpenCard = props.removeOpenCard;
+  const removeAvailablePack = props.removeAvailablePack;
+
+  async function handleOpenPack(pack) {
+    if (packTimeout <= 0 && openCards.length <= 0) {
+      setPackTimeout(60);
+      removeAvailablePack(pack.id);
+      fetchPackCards(pack.variant).then((cards) => {
+        setOpenCards(cards);
+      });
+    }
+  }
+
   return (
     <Modal
       open={props.openPacks}
@@ -47,27 +67,44 @@ export default function ObtainPacks(props) {
             onClick={props.handleClosePacks}
           />
         </Box>
-        <Grid
+        <Box
           display={"flex"}
           justifyContent={"space-evenly"}
+          alignContent={"center"}
           flexWrap="wrap"
           spacing={2}
         >
-          <Grid xs={3}>
-            <CardPack variation="dark" />
-          </Grid>
-          <Grid xs={3}>
-            <CardPack variation="light" />
-          </Grid>
-          <Grid xs={3}>
-            <CardPack variation="dark" />
-          </Grid>
-          <Grid xs={3}>
-            <CardPack variation="light" />
-          </Grid>
-        </Grid>
+          {availablePacks?.length > 0 &&
+            availablePacks.map((pack) => {
+              return (
+                <Grid
+                  onClick={() => {
+                    handleOpenPack(pack);
+                  }}
+                >
+                  <CardPack
+                    variation={pack.variant}
+                    packTimeout={packTimeout}
+                  />
+                </Grid>
+              );
+            })}
+        </Box>
         <Box display={"flex"} justifyContent={"space-evenly"} flexWrap="wrap">
-          <FetchPackCards variation="light" />
+          {openCards?.length > 0 &&
+            openCards.map((card) => {
+              return (
+                <AlbumCard
+                  key={card.id}
+                  id={card.id}
+                  section={card.section}
+                  title={card.title}
+                  type={card.type}
+                  fromPack={true}
+                  removeOpenCard={removeOpenCard}
+                />
+              );
+            })}
         </Box>
       </Container>
     </Modal>
